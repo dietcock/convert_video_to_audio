@@ -1,0 +1,16 @@
+//python -m grpc_tools.protoc -I./proto --python_out=. --grpc_python_out=. ./proto/voice_bucket.proto
+
+syntax = "proto3";
+package proto;
+
+service AudioDownloadService {
+    rpc ConvertVideoToAudio (ConvertVideoToAudioRequest) returns (Void) {}
+    rpc HealthCheck (Void) returns (Void) {}
+}
+
+message Void {}
+
+
+message ConvertVideoToAudioRequest {
+    string SourceVideoURL = 1;
+}
